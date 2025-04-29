@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <h1>ah shit, here we go again</h1>
+    <script>
+            function makeGameBoard(size = 3){
+                board = [];
+
+                const initialiseBoard = () => {
+                    for(let i = 0; i < size; i++){
+                        board[i] = [];
+                        for(let j = 0; j < size; j++){
+                            board[i][j] = '';
+                        }
+                    }
+                }
+
+                initialiseBoard();
+
+                const getBoard = () => board;
+
+                const addCell = (x,y,value) => {
+                    if(board[x][y] !== ""){
+                        return;
+                    }
+                    else{
+                        board[x][y] += value;
+                    }
+                }
+
+                const restartBoard = () => {
+                    for(let i =0; i< board.length; i++){
+                        for(let j = 0; j < board.length; j++){
+                            board[i][j] = '';
+                        }
+                    }
+                }
+
+                return{
+                    getBoard,
+                    addCell,
+                    restartBoard
+                }
+            }
+
+            function createPlayer(name, symbol){
+                return{
+                    name,
+                    symbol
+                }
+            }
+
+
+            let gameOver = false;
+            let rounds = 0;
+
+            function gameController(player1, player2, gameboard){
+                let currentPlayer = player1;
+                gameOver = false;
+                
+                const switchPlayer = () => {
+                    currentPlayer = currentPlayer === player1 ? player2: player1;
+                }
+
+                const getCurrentPlayer = () => currentPlayer;
+
+                const playRound = (row, col) => {
+                    const board = gameboard.getBoard();
+                    
+                    if(gameOver){
+                        return;
+                    }
+
+                    if(board[row][col] !== ''){
+                        return;
+                    }
+
+                    gameboard.addCell(row, col, currentPlayer.symbol);
+
+
+                    if(gameWin()){
+                        gameOver = true;
+                        console.log(`${currentPlayer.name} wins`);
+                        return;
+                    }
+                    if(gameDraw()){
+                        gameOver = true;
+                        console.log("It's a draw!");
+                    }
+
+                    switchPlayer();
+                }
+
+                const gameWin = () => {
+                    const board = gameboard.getBoard();
+                    const symbol = currentPlayer.symbol;
+
+                    for(let i = 0; i < 3; i++){
+                        if(board[i][0] === symbol && board[i][1] === symbol && board[i][2] === symbol){
+                            return true;
+                        }
+                        if(board[0][i] === symbol && board[1][i] === symbol && board[2][i] === symbol){
+                            return true;
+                        }
+                    }
+                    if(board[0][0] === symbol && board[1][1] === symbol && board[2][2] === symbol){
+                        return true;
+                    }
+                    if(board[0][2] === symbol && board[1][1] === symbol && board[2][0] === symbol){
+                        return true;
+                    }
+                    
+                    return false;
+                    }
+                
+                const gameDraw = () => {
+                    const board = gameboard.getBoard();
+                    return board.flat().every(cell => cell !== '');
+                }
+
+                const startGame = () => {
+                    gameOver = false;
+                    gameboard.restartBoard();
+                    currentPlayer = player1;
+                    console.log("Game started! " + currentPlayer.name + "'s turn");
+                }
+
+                return{
+                    startGame,
+                    playRound,
+                    getCurrentPlayer
+                }
+            }
+            
+            const Gameboard = makeGameBoard();
+            const player1 = createPlayer("Lisa", "X");
+            const player2 = createPlayer("Erik", "O");
+            const Game = gameController(player1, player2, Gameboard);
+
+            Game.startGame();
+            Game.playRound(0,0);
+            Game.playRound(0,1);
+            Game.playRound(1,0);
+            Game.playRound(1,1);
+            Game.playRound(2,0);    
+            console.log(Gameboard.getBoard());
+
+
+    </script>
+</body>
+</html>
