@@ -1,0 +1,119 @@
+body{
+    background-image: url(image/outrun-neon-dark-background-purple-3840x2160-4523.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+@font-face {
+    font-family: Neuropol;
+    src: url(fonts/Neuropol.otf);
+    font-family: "LomoCopy LT Std Mezzo";
+    src: url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.eot");
+    src: url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.svg#LomoCopy LT Std Mezzo")format("svg");
+}
+
+h1{
+    color: white;
+    font-family: LomoCopy LT Std Mezzo;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#tic{
+    color: #a6fefe;
+    text-shadow: 0px 0px 10px #a6fefe;
+}
+
+#tac{
+    color:aquamarine;
+    text-shadow: 0px 0px 10px aquamarine;
+}
+
+#toe{
+    color: #fd9afa;
+    text-shadow: 0px 0px 10px #fd9afa;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 220px;
+}
+
+label{
+    color: white;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 68px;
+}
+
+label{
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+    font-family: LomoCopy LT Std Mezzo;
+    font-size: 30px;
+}
+
+.info_player1 > label{
+    color:aqua;
+}
+
+.info_player2 > label{
+    color:coral
+}
+
+input{
+    padding: 10px;
+    width: 400px;
+    border: 3px solid pink;
+    background-color:powderblue;
+    box-sizing: border-box;
+    font-size: 20px;
+    font-family: LomoCopy LT Std Mezzo;
+    border-radius: 15px;
+}
+
+.info_player1 > input{
+    color:coral;
+    font-weight: bold;
+}
+
+.info_player2 > input{
+    color:hotpink;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.submit{
+    font-family: LomoCopy LT Std Mezzo;
+    padding: 5px;
+    padding-left: 40px;
+    padding-right: 40px;
+    font-size: 40px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 0 20px red, 0 0 40px blue, 0 0 40px green;
+    background-color:darkturquoise;
+    color:chocolate;
+}
+
+.submit:hover{
+    box-shadow: 0 0 10px red, 0 0 30px blue, 0 0 30px green;
+    transform: scale(1.1);
+}
+.submit:active{
+    box-shadow: 0 0 5px red, 0 0 20px blue, 0 0 20px green;
+    transform: scale(0.95);
+}

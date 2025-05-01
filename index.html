@@ -4,9 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>ah shit, here we go again</h1>
+    <div class="container">
+        <h1><span id="tic">Tic</span> <span id="tac">Tac</span> <span id="toe">Toe</span></h1>
+
+        <form>
+            <div class="info_player1">
+                <label for="player-1">Player-1 Name</label>
+                <input type="text" name="player-1" id="player-1">
+            </div>
+             <div class="info_player2">
+                <label for="player-2">Player-2 Name</label>
+                <input type="text" name="player-2" id="player-2">
+            </div>
+
+            <button type="submit" class="submit">START</button>
+        </form>
+    </div>
     <script>
             function makeGameBoard(size = 3){
                 board = [];
@@ -147,7 +163,8 @@
             Game.playRound(0,1);
             Game.playRound(1,0);
             Game.playRound(1,1);
-            Game.playRound(2,0);    
+            Game.playRound(2,0);
+
             console.log(Gameboard.getBoard());
 
 
