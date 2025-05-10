@@ -24,15 +24,12 @@ submit.addEventListener('click', () => {
     restart_button.classList.add('restart-button');
     restart_button.textContent = "Restart";
 
-    
-
     container.appendChild(restart_button);
 
     player_info.remove();
     submit.remove();
 
     function makeGameBoard(size = 3){
-        board = [];
     
         const initialiseBoard = () => {
             for(let i = 0; i < size; i++){
@@ -41,23 +38,17 @@ submit.addEventListener('click', () => {
                 row.classList.add('row');
                 row.style.cssText = "display:flex;"
                 displayboard.appendChild(row);
-                board[i] = [];
     
                 for(let j = 0; j < size; j++){
                     // Add cells to displayboard
                     const cell = document.createElement('div');
                     cell.classList.add('cell');
                     row.appendChild(cell);
-                    
-                    // cell.appendChild(O);
-                    board[i][j] = '';
                 }
             }
         }
     
         initialiseBoard();
-    
-        const getBoard = () => board;
  
         const addCell = (get_key, value) => {
             if(get_key.innerHTML !== ""){
@@ -77,20 +68,9 @@ submit.addEventListener('click', () => {
                     get_key.appendChild(O);
                 }
             }
-        }
-    
-        const restartBoard = () => {
-            for(let i =0; i< board.length; i++){
-                for(let j = 0; j < board.length; j++){
-                    board[i][j] = '';
-                }
-            }
-        }
-    
+        }   
         return{
-            getBoard,
-            addCell,
-            restartBoard
+            addCell
         }
     }
     
@@ -100,9 +80,7 @@ submit.addEventListener('click', () => {
             symbol
         }
     }
-    
-    
-    
+ 
     let currentPlayer;
     
     function gameController(player1, player2, gameboard){
@@ -112,9 +90,7 @@ submit.addEventListener('click', () => {
         const switchPlayer = () => {
             currentPlayer = currentPlayer === player1 ? player2: player1;
         }
-        
-        
-    
+           
         const playRound = () => {
             
             const get_cell = document.querySelectorAll('.cell');
@@ -246,10 +222,6 @@ submit.addEventListener('click', () => {
     
     Game.startGame();
     Game.playRound();
-    
-    // console.log(get_row);
-    
-    // console.log(Gameboard.getBoard());
 })
 
 
