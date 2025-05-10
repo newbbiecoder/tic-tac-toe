@@ -44,14 +44,27 @@ h1{
     display: flex;
     align-items: center;
     flex-direction: column;
-    gap: 220px;
+    gap: 30px;
+}
+
+.info_player1{
+    margin-top: 100px;
+}
+
+.info_player2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.displayboard{
+    margin-bottom: 20px;
 }
 
 label{
     color: white;
 }
 
-form{
+.player_info{
     display: flex;
     flex-direction: column;
     gap: 68px;
@@ -62,7 +75,7 @@ label{
     margin-bottom: 10px;
     justify-content: center;
     font-family: LomoCopy LT Std Mezzo;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .info_player1 > label{
@@ -95,7 +108,7 @@ input{
     margin-bottom: 25px;
 }
 
-.submit{
+.submit, .restart-button{
     font-family: LomoCopy LT Std Mezzo;
     padding: 5px;
     padding-left: 40px;
@@ -109,11 +122,57 @@ input{
     color:chocolate;
 }
 
-.submit:hover{
+.submit:hover, .restart-button:hover{
     box-shadow: 0 0 10px red, 0 0 30px blue, 0 0 30px green;
     transform: scale(1.1);
 }
-.submit:active{
+.submit:active, .restart-button:active{
     box-shadow: 0 0 5px red, 0 0 20px blue, 0 0 20px green;
     transform: scale(0.95);
+}
+
+.cell{
+    width: 150px;
+    height: 150px;
+    color: #0ff;
+    background-color: transparent;
+    border: 2px solid mediumaquamarine;
+    box-shadow:0 0 10px mediumaquamarine,0 0 20px mediumaquamarine,inset 0 0 10px mediumaquamarine;
+    /* border: 2px solid #0ff;
+    box-shadow:0 0 10px #0ff,0 0 20px #0ff,inset 0 0 10px #0ff; */
+    transition: transform 0.2s;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cell:hover {
+    transform: scale(1.05);
+}
+
+.X{
+    color: #00ffff;
+    text-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 20px #00ffff;
+}
+
+.O{
+    color: #fd9afa;
+    text-shadow:
+        0 0 5px #fd9afa,
+        0 0 10px #fd9afa,
+        0 0 20px #fd9afa;
+}
+
+.player_turn, .game-win, .game-draw{
+    color: greenyellow;
+    font-size: 50px;
+    font-family: LomoCopy LT Std Mezzo;
+}
+
+.game-win, .game-draw{
+    color: aqua;
 }
