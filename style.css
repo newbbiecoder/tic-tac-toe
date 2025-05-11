@@ -1,4 +1,4 @@
-body{
+body {
     background-image: url(image/outrun-neon-dark-background-purple-3840x2160-4523.jpg);
     background-repeat: no-repeat;
     background-position: center;
@@ -11,17 +11,17 @@ body{
     src: url(fonts/Neuropol.otf);
     font-family: "LomoCopy LT Std Mezzo";
     src: url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.eot");
-    src: url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.svg#LomoCopy LT Std Mezzo")format("svg");
+    src: url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.eot?#iefix") format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.woff2") format("woff2"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.woff") format("woff"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.ttf") format("truetype"),
+    url("https://db.onlinewebfonts.com/t/92b1da74a5d40b53ace10822de1ef11c.svg#LomoCopy LT Std Mezzo") format("svg");
 }
 
-h1{
+h1 {
     color: white;
     font-family: LomoCopy LT Std Mezzo;
-    font-size: 50px;
+    font-size: 3rem;
     font-weight: bold;
 }
 
@@ -40,139 +40,261 @@ h1{
     text-shadow: 0px 0px 10px #fd9afa;
 }
 
-.container{
+.container {
     display: flex;
-    align-items: center;
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
+    gap: 3rem;
 }
 
-.info_player1{
-    margin-top: 100px;
+.displayboard {
+    margin-bottom: 2rem;
 }
 
-.info_player2{
-    margin-top: 30px;
-    margin-bottom: 30px;
-}
-
-.displayboard{
-    margin-bottom: 20px;
-}
-
-label{
+label {
     color: white;
 }
 
-.player_info{
+.player_info {
     display: flex;
     flex-direction: column;
-    gap: 68px;
+    gap: 4rem;
 }
 
-label{
+label {
     display: flex;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
     justify-content: center;
     font-family: LomoCopy LT Std Mezzo;
-    font-size: 35px;
+    font-size: 2.5rem;
 }
 
-.info_player1 > label{
-    color:aqua;
-}
-
-.info_player2 > label{
-    color:coral
-}
-
-input{
-    padding: 10px;
-    width: 400px;
+input {
+    padding: 0.6rem;
+    width: 21rem;
     border: 3px solid pink;
-    background-color:powderblue;
+    background-color: powderblue;
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 1.5rem;
     font-family: LomoCopy LT Std Mezzo;
-    border-radius: 15px;
+    border-radius: 1rem;
+    text-align: center;
 }
 
-.info_player1 > input{
-    color:coral;
+
+input:focus {
+    outline: none;
+    box-shadow:
+        0 0 10px #ff00ff,
+        0 0 20px #00ffff,
+        inset 0 0 10px #00ffff;
+    transform: scale(1.05);
+}
+
+.info_player1 > input {
+    color: coral;
+    box-shadow:
+        0 0 5px #ff69b4,
+        0 0 10px #ff69b4,
+        inset 0 0 5px #ff69b4;
     font-weight: bold;
 }
 
-.info_player2 > input{
-    color:hotpink;
+.info_player2 > input {
+    color: hotpink;
+    box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        inset 0 0 5px #00ffff;
+    margin-bottom: 2rem;
     font-weight: bold;
-    margin-bottom: 25px;
 }
 
-.submit, .restart-button{
+
+.info_player1 > label {
+    color: aqua;
+}
+
+.info_player2 > label {
+    color: coral;
+}
+
+.submit, .restart-button {
     font-family: LomoCopy LT Std Mezzo;
-    padding: 5px;
-    padding-left: 40px;
-    padding-right: 40px;
-    font-size: 40px;
-    border-radius: 20px;
+    padding: 0.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    font-size: 2.5rem;
+    border-radius: 1rem;
     border: none;
     cursor: pointer;
     box-shadow: 0 0 20px red, 0 0 40px blue, 0 0 40px green;
-    background-color:darkturquoise;
-    color:chocolate;
+    background-color: darkturquoise;
+    color: chocolate;
 }
 
-.submit:hover, .restart-button:hover{
+.submit:hover, .restart-button:hover {
     box-shadow: 0 0 10px red, 0 0 30px blue, 0 0 30px green;
     transform: scale(1.1);
 }
-.submit:active, .restart-button:active{
+
+.submit:active, .restart-button:active {
     box-shadow: 0 0 5px red, 0 0 20px blue, 0 0 20px green;
     transform: scale(0.95);
 }
 
-.cell{
-    width: 150px;
-    height: 150px;
-    color: #0ff;
-    background-color: transparent;
-    border: 2px solid mediumaquamarine;
-    box-shadow:0 0 10px mediumaquamarine,0 0 20px mediumaquamarine,inset 0 0 10px mediumaquamarine;
-    /* border: 2px solid #0ff;
-    box-shadow:0 0 10px #0ff,0 0 20px #0ff,inset 0 0 10px #0ff; */
-    transition: transform 0.2s;
-    font-size: 48px;
+.cell {
+    width: 120px;
+    height: 120px;
+    font-size: 3rem;
+    font-family: 'LomoCopy LT Std Mezzo', sans-serif;
+    color: #00ffff;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid #00ffff;
+    border-radius: 10px;
+    box-shadow:
+        0 0 5px #00ffff,
+        0 0 10px #00ffff,
+        0 0 15px #00ffff,
+        inset 0 0 5px #00ffff;
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 .cell:hover {
-    transform: scale(1.05);
+    cursor: pointer;
 }
 
-.X{
+.X {
     color: #00ffff;
+    font-weight: bold;
+    font-size: 3rem;
     text-shadow:
         0 0 5px #00ffff,
         0 0 10px #00ffff,
-        0 0 20px #00ffff;
+        0 0 20px #00ced1,
+        0 0 30px #00ced1;
+    transition: transform 0.2s ease;
 }
 
-.O{
+.O {
     color: #fd9afa;
+    font-weight: bold;
+    font-size: 3rem;
     text-shadow:
         0 0 5px #fd9afa,
         0 0 10px #fd9afa,
-        0 0 20px #fd9afa;
+        0 0 20px #ff69b4,
+        0 0 30px #ff69b4;
+    transition: transform 0.2s ease;
 }
 
-.player_turn, .game-win, .game-draw{
+.X:hover,
+.O:hover {
+    transform: scale(1.1);
+}
+
+.player_turn, .game-win, .game-draw {
     color: greenyellow;
-    font-size: 50px;
+    font-size: 3rem;
     font-family: LomoCopy LT Std Mezzo;
 }
 
-.game-win, .game-draw{
-    color: aqua;
+.player_turn{
+    font-size: 3rem;
+    font-family: LomoCopy LT Std Mezzo;
+    color: greenyellow;
+    text-shadow: 
+        0 0 5px #39ff14, 
+        0 0 10px #32cd32, 
+        0 0 15px #228B22;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.game-win {
+    color: #39ff14;
+    text-shadow: 0 0 5px #39ff14, 0 0 10px #32cd32, 0 0 15px #32cd32, 0 0 25px #228B22;
+    animation: neonPulse 1.2s infinite alternate;
+    font-weight: bold;
+    transform: scale(1.07);
+    transition: transform 0.3s ease;
+}
+
+.game-draw {
+    color: #ff6347;
+    text-shadow: 0 0 5px #ff6347, 0 0 10px #ff4500, 0 0 15px #ff4500, 0 0 20px #b22222;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    animation: neonDrawPulse 1.5s infinite alternate;
+    margin-top: 2rem;
+}
+
+@keyframes neonPulse {
+    from {
+        text-shadow: 0 0 4px #39ff14, 0 0 8px #32cd32, 0 0 12px #228B22;
+        transform: scale(1.05);
+    }
+    to {
+        text-shadow: 0 0 6px #39ff14, 0 0 12px #32cd32, 0 0 18px #228B22;
+        transform: scale(1.1);
+    }
+}
+
+@keyframes neonDrawPulse {
+    from {
+        text-shadow: 0 0 4px #ff6347, 0 0 8px #ff4500, 0 0 12px #b22222;
+        transform: scale(1.05);
+    }
+    to {
+        text-shadow: 0 0 6px #ff6347, 0 0 12px #ff4500, 0 0 18px #b22222;
+        transform: scale(1.1);
+    }
+}
+
+.winning-cell {
+    background-color: rgba(0, 255, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+@media (max-width: 600px) {
+    .cell {
+        font-size: 24px; 
+        height: 70px; 
+        width: 70px;    
+    }
+
+    .player_turn {
+        font-size: 1.5rem;
+    }
+
+    .game-draw, .game-win {
+        font-size: 1.8rem;
+    }
+
+    .submit, .restart-button {
+        font-size: 1.5rem;
+        padding: 10px 20px;
+    }
+}
+
+@media (min-width: 1000px) {
+    .cell {
+        font-size: 48px;
+        height: 120px;
+        width: 120px;
+    }
+
+    .game-draw, .game-win {
+        font-size: 2.5rem;
+    }
+
+    .submit, .restart-button {
+        font-size: 2rem;
+        padding: 15px 30px;
+    }
 }

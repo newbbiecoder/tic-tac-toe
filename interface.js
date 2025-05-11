@@ -54,6 +54,7 @@ submit.addEventListener('click', () => {
             if(get_key.innerHTML !== ""){
                 return;
             }
+
             else{ 
                 if (value == 'X'){
                     const X = document.createElement('p');
@@ -96,17 +97,25 @@ submit.addEventListener('click', () => {
             const get_cell = document.querySelectorAll('.cell');
 
             function cellClick(e){
+                console.log(gameWin());
                 const cell = e.target;
+                
 
                 if(cell.innerHTML === ''){
                     gameboard.addCell(cell, currentPlayer.symbol);
 
-                    if(gameWin()){
+                    const winningCells = gameWin();
+
+                    if(winningCells){                      
                         const gameWinTextBoard = document.createElement('div');
                         gameWinTextBoard.classList.add('game-win');
                         container.insertBefore(gameWinTextBoard, container.children[2])
                         player_turn.style.display = "none";
-                        gameWinTextBoard.innerHTML = `${currentPlayer.name} wins`
+                        gameWinTextBoard.innerHTML = `${currentPlayer.name} wins`;
+
+                        winningCells.forEach(cell => {
+                            cell.classList.add('winning-cell');
+                        })
 
                         get_cell.forEach((cell) => {
                             cell.removeEventListener('click', cellClick);
@@ -137,15 +146,21 @@ submit.addEventListener('click', () => {
             restart_button.addEventListener('click', () => {  
                 switchPlayer()
                 const get_cell = document.querySelectorAll('.cell');
-
-                if(gameWin()){
+                const winningCells = gameWin();
+                if(winningCells){
                     player_turn.style.display = "block";
                     const game_win = document.querySelector('.game-win');
-                    game_win.style.display = "none"
+                    game_win.style.display = "none";
+
+                    
+                    winningCells.forEach(cell => {
+                        cell.classList.remove('winning-cell');
+                    })
                     
                     get_cell.forEach((cell) => {
                         cell.addEventListener('click', cellClick);
                     });
+
                 }
                 
                 else if(gameDraw()){
@@ -163,8 +178,6 @@ submit.addEventListener('click', () => {
             })
           
         }
-
-        
     
         const gameWin = () => {
             const symbol = currentPlayer.symbol;
@@ -172,17 +185,17 @@ submit.addEventListener('click', () => {
 
             for(let i = 0; i < 3; i++){
                 if(get_row[i].children[0].textContent === symbol && get_row[i].children[1].textContent === symbol && get_row[i].children[2].textContent === symbol){
-                    return true;
+                    return [get_row[i].children[0], get_row[i].children[1], get_row[i].children[2]];
                 }
                 if(get_row[0].children[i].textContent === symbol && get_row[1].children[i].textContent === symbol && get_row[2].children[i].textContent === symbol){
-                    return true;
+                    return [get_row[0].children[i], get_row[1].children[i], get_row[2].children[i]];
                 }
             }
             if(get_row[0].children[0].textContent === symbol && get_row[1].children[1].textContent === symbol && get_row[2].children[2].textContent === symbol){
-                return true;
+                return [get_row[0].children[0], get_row[1].children[1], get_row[2].children[2]];
             }
             if(get_row[0].children[2].textContent === symbol && get_row[1].children[1].textContent === symbol && get_row[2].children[0].textContent === symbol){
-                return true;
+                return [get_row[0].children[2], get_row[1].children[1], get_row[2].children[0]];
             }
             
             return false;
